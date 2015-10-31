@@ -69,17 +69,17 @@ public class RepositorioFutbolistas extends SQLiteOpenHelper {
     }
 
     /**
-     * Recupera todos los pilotos de la tabla ordenados por ID
+     * Recupera todos los futbolistas de la tabla ordenados por ID
      * @see #getAll(String , boolean)
-     * @return Array de pilotos ordenados por ID
+     * @return Array de futbolistas ordenados por ID
      */
     public ArrayList<Futbolista> getAll() {
         return getAll(tablaFutbolista.COL_NAME_ID, true);
     }
 
     /**
-     * Recupera todos los pilotos de la tabla ordenados por la columna proporcionada
-     * @return Array de pilotos ordenados
+     * Recupera todos los futbolistas de la tabla ordenados por la columna proporcionada
+     * @return Array de futbolistas ordenados
      */
     public ArrayList<Futbolista> getAll(String columna, boolean ordenAscendente) {
         ArrayList<Futbolista> resultado = new ArrayList<>();
@@ -141,7 +141,7 @@ public class RepositorioFutbolistas extends SQLiteOpenHelper {
      * @param id Identificador del futbolista
      * @return  futbolistas
      */
-    public Futbolista getPilotoByID(int id) {
+    public Futbolista getFutbolistaByID(int id) {
         String consultaSQL = "SELECT * FROM " + tablaFutbolista.TABLE_NAME
                 + " WHERE " + tablaFutbolista.COL_NAME_ID + " = ?";
         SQLiteDatabase db = this.getReadableDatabase();

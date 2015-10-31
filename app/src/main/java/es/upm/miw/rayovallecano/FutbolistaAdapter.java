@@ -22,6 +22,7 @@ public class FutbolistaAdapter extends ArrayAdapter<Futbolista> {
         super(context, R.layout.layout_listado_futbolista, futbolistas);
         this._futbolistas = futbolistas;
         this._contexto = context;
+        setNotifyOnChange(true);
     }
 
     @Override
@@ -58,4 +59,6 @@ public class FutbolistaAdapter extends ArrayAdapter<Futbolista> {
 
         return convertView;
     }
+
+
 }

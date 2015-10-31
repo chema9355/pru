@@ -30,7 +30,7 @@ public class ActividadMostrarFutbolista extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        // Recuperar piloto
+        // Recuperar futbolista
         Futbolista futbolista = getIntent().getParcelableExtra("MOSTRAR_Futbolista");
         Log.i("MOSTRAR", futbolista.toString());
 
@@ -58,15 +58,15 @@ public class ActividadMostrarFutbolista extends AppCompatActivity {
         else {  // recuperar imagen
             // Drawable imagen = null;
             // Resources res = this.getApplicationContext().getResources();
-            // InputStream is = new URL(piloto.get_url_imagen()).openStream();
+            // InputStream is = new URL(futbolista.get_url_imagen()).openStream();
             // imagen = new BitmapDrawable(res, BitmapFactory.decodeStream(is));
-            // ivImagenPiloto.setImageDrawable(imagen);
+            // ivImagenFutbolista.setImageDrawable(imagen);
             //
             // podría ser... pero lanza NetworkOnMainThreadException
 
             // TareaCargarImagen tarea = new TareaCargarImagen();
-            // ivImagenPiloto.setTag(piloto.get_url_imagen());
-            // tarea.execute(ivImagenPiloto);
+            // ivImagenFutbolista.setTag(futbolista.get_url_imagen());
+            // tarea.execute(ivImagenFutbolista);
 
             // Picasso.with(context).load(url).into(imageView);
             // http://square.github.io/picasso/

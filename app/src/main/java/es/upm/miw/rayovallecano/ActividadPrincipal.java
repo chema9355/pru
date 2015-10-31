@@ -23,6 +23,8 @@ public class ActividadPrincipal extends AppCompatActivity {
 
     ArrayList<Futbolista> futbolistas;
     ListView lvListadoFutbolistas;
+    RepositorioFutbolistas repositorio;
+    ArrayAdapter<Futbolista> adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +42,17 @@ public class ActividadPrincipal extends AppCompatActivity {
             }
         });
 
-        RepositorioFutbolistas repositorio = new RepositorioFutbolistas(this);
+        repositorio = new RepositorioFutbolistas(this);
 
         int num = (int) (100 * Math.random());
         Log.i("Num", String.format("%d", repositorio.add(
                 new Futbolista(num, "Jugador " + String.format("%d", num), num, num % 2 == 0, "Primera", null))));
+        repositorio.add(
+                new Futbolista(++num, "Jugador " + String.format("%d", num), num, num % 2 == 0, "Primera",
+                        "http://www.upm.es/estaticos/imagenes/comunes/universidad_politecnica_logoI.png"));
 
         futbolistas = repositorio.getAll();
-        ArrayAdapter<Futbolista> adaptador = new FutbolistaAdapter(this, futbolistas);
+        adaptador = new FutbolistaAdapter(this, futbolistas);
         lvListadoFutbolistas = (ListView) findViewById(R.id.lvListadoFutbolistas);
         lvListadoFutbolistas.setAdapter(adaptador);
 
@@ -63,7 +68,6 @@ public class ActividadPrincipal extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,5 +92,6 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 }
